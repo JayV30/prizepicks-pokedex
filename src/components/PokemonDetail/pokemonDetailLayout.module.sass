@@ -1,0 +1,95 @@
+@use "@/styles/variables" as v
+
+.pokemonDetail
+  display: flex
+  flex-direction: column
+  flex: 1 1 auto
+  height: calc(100% - 2rem)
+  margin: 1rem 1rem 1rem 0
+  overflow-y: auto
+  padding: 1rem 1rem 1rem 0
+
+.pokemonDetailInner
+  align-items: center
+  display: flex
+  flex-direction: row
+  flex: 1 1 auto
+  justify-content: center
+  @media (max-width: 800px)
+    flex-direction: column-reverse
+
+.pokemonStats
+  background-color: v.$white
+  border-radius: 1rem
+  border: 2px solid v.$blue
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px
+  display: flex
+  flex-direction: column
+  flex: 0 1 auto
+  margin-left: 2px
+  max-width: 100%
+  padding: 2rem
+  .pokemonStatRow
+    align-items: stretch
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    margin-bottom: 2rem
+    &:last-child
+      margin-bottom: 0
+    .pokemonStatGroup
+      flex: 1 1 50%
+      &:not(:last-child)
+        border-right: 1px solid rgba(v.$dark, 0.2)
+        margin-right: 1rem
+        padding-right: 1rem
+      h4
+        color: v.$blue
+        font-size: 1.1rem
+        margin: 0 0 0.75rem
+        text-shadow: 0 0 1px v.$light
+      p
+        color: v.$dark
+        font-size: 1.2rem
+        margin: 0
+      ul
+        list-style-type: none
+        margin: 0
+        padding: 0
+        li
+          border-radius: 1rem
+          border: 1px solid lighten(v.$secondary-color, 40%)
+          color: v.$dark
+          display: inline-block
+          font-size: 0.9rem
+          font-weight: bold
+          line-height: 1
+          margin: 0 0.5rem 0.5rem 0
+          padding: 0.4rem 0.5rem 0.25rem
+          text-transform: uppercase
+          white-space: nowrap
+          &:last-child
+            margin-right: 0
+
+.pokemonImage
+  aspect-ratio: 1 / 1
+  flex: 1 1 auto
+  margin-left: 2rem
+  max-width: 350px
+  min-width: 140px
+  position: relative
+  @media (max-width: 800px)
+    margin-left: 0
+    min-width: 250px
+  img
+    filter: drop-shadow(0.25rem 0 0.25rem rgba(0, 0, 0, 0.75))
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100%
+
+.evolutionChainHeading
+  color: v.$blue
+  margin: 2rem auto 1rem
+  text-shadow: 0 0 1px v.$light

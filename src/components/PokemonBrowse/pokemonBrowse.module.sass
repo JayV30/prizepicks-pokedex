@@ -1,0 +1,28 @@
+.pokemonBrowseList,
+.pokemonBrowseListHidden
+  display: flex
+  flex: 1 1 auto
+  flex-direction: column
+  width: 100%
+
+.pokemonBrowseListHidden
+  visibility: hidden
+
+.listContainer
+  display: flex
+  flex-wrap: wrap
+  overflow: hidden
+
+.itemContainer
+  align-content: stretch
+  display: flex
+  flex-direction: column
+  flex: none
+  padding: 2rem 1.5rem 1rem
+  width: 25%
+  @media (max-width: 1140px)
+    padding: 2rem 1.5rem 1rem
+    width: 33%
+  @media (max-width: 800px)
+    padding: 2rem 1.25rem 1rem
+    width: 50%

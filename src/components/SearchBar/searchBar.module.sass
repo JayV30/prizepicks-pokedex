@@ -1,0 +1,116 @@
+@use '@/styles/variables.sass' as v
+
+.searchBar
+  align-items: stretch
+  border-radius: 8px
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px
+  display: flex
+  justify-content: stretch
+  margin: 0 auto
+  position: relative
+  width: 50%
+  input[type="text"]
+    border-radius: 8px 0 0 8px
+    border: 2px solid #e2e2e2
+    color: #2D3748
+    font-size: 1.2rem
+    padding: 8px
+    width: 100%
+    &:focus
+      border-color: v.$blue
+      outline: none
+  @media (max-width: 650px)
+    width: 100%
+
+.searchButton
+  align-items: center
+  background: #e2e2e2
+  border-color: #e2e2e2
+  border-radius: 0 8px 8px 0
+  border-style: solid
+  border-width: 2px 2px 2px 0
+  color: v.$blue
+  cursor: pointer
+  display: flex
+  justify-content: center
+  transition: background 0.1s linear, border-color 0.1s linear, color 0.1s linear
+  &:hover, &:focus
+    background: v.$blue
+    border-color: lighten(v.$blue, 30%)
+    color: v.$white
+  &:focus
+    outline: none
+  &:active
+    background: v.$blue
+    border-color: v.$dark
+
+.searchHistoryPopdown
+  background: rgba(255, 255, 255, 0.95)
+  border-radius: 8px
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px
+  left: 2%
+  overflow: hidden
+  position: absolute
+  top: calc(100% + 3px)
+  width: 96%
+  z-index: 1000
+  & > p
+    border-bottom: 1px solid v.$grey
+    color: v.$secondary-color
+    font-size: 0.8rem
+    font-weight: bold
+    margin: 0
+    padding: 8px
+    position: relative
+    text-transform: uppercase
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    li
+      border-bottom: 1px solid #e2e2e2
+      position: relative
+      &:last-child
+        border-bottom: none
+      button
+        all: unset
+        box-sizing: border-box
+        display: inline-block
+        &.searchHistoryItemButton
+          padding: 8px
+          width: 100%
+          &:hover
+            background: #e2e2e2
+            cursor: pointer
+          &:focus
+            background: #e2e2e2
+            outline: none
+        &.removeButton
+          color: v.$secondary-color
+          cursor: pointer
+          height: 16px
+          position: absolute
+          right: 16px
+          top: 50%
+          transform: translateY(-50%)
+          width: 16px
+          &:hover
+            color: v.$blue
+          &:focus
+            color: v.$blue
+            outline: 1px solid v.$blue
+
+.clearButton
+  all: unset
+  color: v.$secondary-color
+  cursor: pointer
+  position: absolute
+  right: 16px
+  top: 50%
+  transform: translateY(-50%)
+  &:hover
+    color: v.$blue
+  &:focus
+    color: v.$blue
+    outline: 1px solid v.$blue
+

@@ -1,0 +1,111 @@
+{
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:import/typescript",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+    // we don't necessarily care about lf vs crlf as we are nearly always on windows
+    "linebreak-style": "off",
+    // why is this rule still enforced? It's deprecated
+    "jsx-a11y/no-onchange": "off",
+    // max length is a very subjective rule so we've bumped up the max length and set only to warn
+    // please feel free to override on a per-file or per-line basis if it looks good
+    "max-len": [
+      "warn",
+      {
+        "code": 140,
+        "ignoreTemplateLiterals": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true
+      }
+    ],
+    // the don't reassign parameters rule doesn't play well with .reduce()
+    // if you experience an issue, use "accum" as the first parameter name and this rule will be ignored
+    // or override the rule on a per-line basis
+    "no-param-reassign": [
+      "error",
+      {
+        "ignorePropertyModificationsFor": ["accum"]
+      }
+    ],
+    // this rule was too restrictive when dealing with nested json objects and arrays
+    "react/forbid-prop-types": [
+      "warn",
+      {
+        "forbid": ["all"]
+      }
+    ],
+    // .js can also be used as a jsx filename extension
+    // "react/jsx-filename-extension": [
+    //   "warn",
+    //   {
+    //     "extensions": [".js", ".jsx"]
+    //   }
+    // ],
+    // nesting labels in inputs is incompatible with bulma, so use ids and htmlFor instead
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either"
+      }
+    ],
+    // this rule makes for some unusual and undesirable formatting
+    "react/jsx-one-expression-per-line": "off",
+    // don't tell me how to define my functions (use arrow functions nearly always)
+    "react/function-component-definition": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".ts", ".tsx"] }],
+    // fix unused var rule for typescript
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  },
+  // storybook has lots of props spreading and anonymous default exporting so turn those rules off
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off",
+        "react/jsx-props-no-spreading": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"]
+        ],
+        "extensions": [".ts", ".tsx", ".json"]
+      }
+    }
+  },
+  // add anything you want ignored here
+  "ignorePatterns": ["node_modules", "dist", "jsconfig.json", "tsconfig.json", "vite.config.ts"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+    // "ecmaFeatures": {
+    //   "jsx": true
+    // }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  }
+}

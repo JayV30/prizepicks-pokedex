@@ -1,0 +1,57 @@
+@use '@/styles/variables.sass' as v
+
+.pokemonDetailHeader
+  background-color: v.$primary-color
+  border-top-right-radius: 1rem
+  left: -2rem
+  padding: 1rem 1rem 1rem 2rem
+  position: relative
+  width: calc(100% + 2rem)
+  h3
+    color: v.$yellow
+    margin: 0
+    padding: 0 2rem
+    position: relative
+    text-align: center
+    text-shadow: 0 0 2px v.$dark
+    width: 100%
+    z-index: 2
+  &::before
+    background-color: transparent
+    border-top-left-radius: 50px
+    bottom: calc(100% - 25px)
+    box-shadow: 0 -50px 0 0 v.$primary-color
+    content: ""
+    height: 100px
+    position: absolute
+    right: calc(100% - 2rem - 43px)
+    transform: rotate(270deg)
+    width: 50px
+    z-index: 1
+  &::after
+    background-color: transparent
+    border-top-left-radius: 50px
+    box-shadow: 0 -50px 0 0 v.$primary-color
+    content: ""
+    height: 100px
+    position: absolute
+    right: calc(100% - 2rem - 18px)
+    top: 100%
+    width: 50px
+    z-index: 1
+
+.closeLink
+  border-radius: 50%
+  color: v.$yellow
+  height: 32px
+  outline: none !important
+  position: absolute
+  right: 1rem
+  top: 50%
+  transform: translateY(-50%)
+  width: 32px
+  z-index: 2
+  &:hover, &:focus
+    box-shadow: 0 0 0.5rem 0.25rem v.$yellow
+    color: v.$white
+    transform: translateY(-50%) scale(1.05)

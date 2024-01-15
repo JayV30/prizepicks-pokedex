@@ -1,0 +1,24 @@
+@use '@/styles/variables' as v
+
+.mainHeader
+  align-items: center
+  background-color: v.$primary-color
+  display: flex
+  justify-content: space-between
+  padding: 1rem 2rem
+  position: relative
+  width: 100%
+  z-index: 100
+  img
+    max-width: 200px
+  h1
+    color: v.$yellow
+    font-size: 2rem
+    margin: 0
+    text-shadow: 0 0 2px v.$dark
+  @media (max-width: 650px)
+    padding: 1rem
+    img
+      max-width: 90px
+    h1
+      font-size: 1.4rem

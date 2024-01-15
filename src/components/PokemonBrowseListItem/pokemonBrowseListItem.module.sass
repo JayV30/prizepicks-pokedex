@@ -1,0 +1,88 @@
+@use "@/styles/variables" as v
+
+.pokemonBrowseListItem
+  background: linear-gradient(0deg, #fbf6e2 15%, #ffeda5 40%, #FFCB05 60%, #ffeda5 80%, #ffeda5 100%)
+  border-radius: 1rem
+  border: 2px solid v.$primary-color
+  display: flex
+  flex-direction: column
+  flex: 1 1 auto
+  padding: 1rem
+  position: relative
+  text-decoration: none !important
+  width: 100%
+  &:has(> a:focus), &:has(> a:hover)
+    border-color: v.$primary-color
+    box-shadow: 0 0 0.5rem 0.25rem v.$primary-color
+  span.name
+    align-self: flex-end
+    color: v.$primary-color
+    font-family: v.$secondary-font
+    font-size: 1.25rem
+    hyphens: auto
+    margin-top: auto
+    overflow-wrap: break-word
+    overflow: hidden
+    padding-top: 1rem
+    position: relative
+    text-align: right
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25)
+    &::after
+      background: rgba(255, 255, 255, 0.2)
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.2)50%, rgba(255, 203, 5, 0.7)100%)
+      content: ''
+      display: block
+      height: 100%
+      left: -100%
+      position: absolute
+      top: 1.2rem
+      transform: skewX(-30deg)
+      transition: none
+      width: 30%
+  span.number
+    align-self: flex-end
+    color: v.$secondary-color
+    font-family: v.$secondary-font
+    font-size: 0.8rem
+    hyphens: auto
+    margin: 0
+    overflow-wrap: break-word
+    padding: 0
+    text-align: right
+  picture
+    height: 0
+    margin-left: -2.5rem
+    margin-top: -3.5rem
+    padding-top: calc(100% + 5rem)
+    position: relative
+    transition: transform 0.25s ease-in-out
+    width: calc(100% + 5rem)
+    img
+      filter: drop-shadow(0.25rem 0 0.25rem rgba(0, 0, 0, 0.75))
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+  a
+    height: 100%
+    left: 0
+    outline: none !important
+    position: absolute
+    top: 0
+    width: 100%
+    z-index: 1
+    &:focus ~ picture, &:hover ~ picture
+      transform: scale(1.05)
+    &:focus ~ span.name::after, &:hover ~ span.name::after
+      left: 100%
+      transition: left 0.5s linear
+  @media (max-width: 1140px)
+    span.name
+      font-size: 1.1rem
+  @media (max-width: 650px)
+    span.name
+      font-size: 0.8rem
+  @media (max-width: 500px)
+    span.name
+      font-size: 0.6rem
